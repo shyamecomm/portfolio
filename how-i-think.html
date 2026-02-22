@@ -1,91 +1,1174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="How I think — draft narrative for Shyam Reddy's portfolio." />
-    <title>How I Think | Shyam Reddy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
-      rel="stylesheet"
+    <meta
+      name="description"
+      content="System thinking methodology portfolio page showing five engineering principles by Shyam Reddy."
     />
-    <link rel="stylesheet" href="styles.css" />
+    <title>How I Think | System Thinking Methodology</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon-brain.svg" />
+    <script>
+      window.tailwind = { config: {
+        theme: {
+          extend: {
+            colors: {
+              charcoal: '#0d0d0d',
+              soot: '#111111',
+              accent: '#f5a623',
+              teal: '#00e5c8',
+              parchment: '#f8f4ea',
+            },
+            fontFamily: {
+              display: ['Syne', 'system-ui', 'sans-serif'],
+              mono: ['IBM Plex Mono', 'SFMono-Regular', 'monospace'],
+            },
+          },
+        },
+      }};
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      .think-hero {
-        min-height: 70vh;
+      @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+      :root {
+        --accent-amber: #e8a020;
+        --accent-teal: #1ab8a0;
+        --transition-speed: 0.4s;
+      }
+
+      [data-theme='dark'] {
+        --bg: #0a0a0a;
+        --text: #f0ede6;
+        --card-bg: rgba(255, 255, 255, 0.03);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --pill-bg: transparent;
+        --pill-text: #f0ede6;
+        --pill-border: rgba(255, 255, 255, 0.32);
+        --hero-gradient: radial-gradient(circle at 25% 20%, rgba(232, 160, 32, 0.09), transparent 55%),
+          radial-gradient(circle at 70% 10%, rgba(26, 184, 160, 0.12), transparent 60%);
+        --card-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+        --closing-bg: #080806;
+        --closing-ghost: rgba(255, 255, 255, 0.04);
+        --contact-bg: #0f0f0d;
+        --contact-border: rgba(255, 255, 255, 0.08);
+        --contact-text: rgba(248, 244, 234, 0.85);
+        --footer-text: rgba(255, 255, 255, 0.4);
+        --footer-text-hover: rgba(255, 255, 255, 0.7);
+        --divider-gradient: linear-gradient(90deg, transparent, rgba(232, 160, 32, 0.65), transparent);
+        --orb-amber: rgba(232, 160, 32, 0.1);
+        --orb-teal: rgba(26, 184, 160, 0.12);
+      }
+
+      [data-theme='light'] {
+        --bg: #f5f2ec;
+        --text: #0d0b08;
+        --card-bg: #edeae3;
+        --card-border: rgba(0, 0, 0, 0.08);
+        --pill-bg: transparent;
+        --pill-text: #0d0b08;
+        --pill-border: rgba(0, 0, 0, 0.28);
+        --hero-gradient: radial-gradient(circle at 25% 20%, rgba(232, 160, 32, 0.15), transparent 60%),
+          radial-gradient(circle at 65% 10%, rgba(255, 255, 255, 0.35), transparent 70%);
+        --card-shadow: 0 24px 60px rgba(13, 11, 8, 0.25);
+        --closing-bg: #f7f1e7;
+        --closing-ghost: rgba(13, 11, 8, 0.05);
+        --contact-bg: #f0e8d8;
+        --contact-border: rgba(0, 0, 0, 0.08);
+        --contact-text: rgba(13, 11, 8, 0.8);
+        --footer-text: rgba(0, 0, 0, 0.45);
+        --footer-text-hover: rgba(0, 0, 0, 0.7);
+        --divider-gradient: linear-gradient(90deg, transparent, rgba(232, 160, 32, 0.55), transparent);
+        --orb-amber: rgba(232, 160, 32, 0.08);
+        --orb-teal: rgba(26, 184, 160, 0.08);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: 'Syne', system-ui, sans-serif;
+        transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+      }
+
+      .page-shell {
+        background-color: var(--bg);
+        color: var(--text);
+        transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+      }
+
+      .noise-texture {
+        background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" opacity="0.04"%3E%3Crect width="1" height="1" fill="white"/%3E%3C/svg%3E');
+      }
+
+      .hero-gradient {
+        position: absolute;
+        inset: 0;
+        background-image: var(--hero-gradient);
+        opacity: 1;
+        pointer-events: none;
+      }
+
+      .pill-tag {
+        border: 1px solid var(--pill-border);
+        color: var(--pill-text);
+        transition: all 0.25s ease;
+      }
+
+      .pill-tag:hover {
+        background-color: var(--accent-amber);
+        color: #0d0b08;
+        border-color: var(--accent-amber);
+      }
+
+      .card-surface {
+        background-color: var(--card-bg);
+        border: 1px solid var(--card-border);
+        box-shadow: var(--card-shadow);
+      }
+
+      .principle-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 2rem;
+        align-items: stretch;
+      }
+
+      .principle-card {
+        grid-column: span 2;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        gap: 1.2rem;
-        padding: clamp(3rem, 9vw, 6rem) 1.5rem 2rem;
+        height: 100%;
+        padding: 2rem;
+        border-radius: 1.75rem;
       }
-      .think-hero h1 {
-        margin: 0;
-        font-size: clamp(2.2rem, 5vw, 3.8rem);
+
+      .principle-card:nth-child(n + 4) {
+        grid-column: span 3;
       }
-      .think-hero p {
-        max-width: 720px;
-        line-height: 1.7;
-        color: var(--muted);
-        font-size: 1.05rem;
+
+      .principle-card ul {
+        padding-left: 1.25rem;
       }
-      .think-cards {
-        margin-top: 1.5rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1rem;
+
+      .card-index {
+        font-size: clamp(3rem, 6vw, 5rem);
+        font-weight: 700;
+        color: var(--accent-amber);
+        opacity: 0.15;
+        transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
       }
-      .think-cards .card {
-        min-height: 210px;
+
+      .card:hover .card-index {
+        opacity: 0.35;
+        transform: scale(1.05);
       }
-      .back-link {
+
+      .theme-toggle {
+        border: 1px solid var(--pill-border);
+        background: transparent;
+        color: var(--pill-text);
+        transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+      }
+
+      .theme-toggle:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .theme-icon {
+        display: inline-block;
+        transition: transform 0.4s ease;
+      }
+
+      .theme-toggle.theme-light .theme-icon {
+        transform: rotate(180deg);
+      }
+
+      .hero-word {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .hero-word.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hero-sublead {
+        display: inline;
+      }
+
+      .hero-lenses-inline {
+        display: inline-flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 0.35rem;
+        margin-top: 0.6rem;
+        margin-left: 0;
+      }
+
+      .lens-chip {
         display: inline-flex;
         align-items: center;
-        gap: 0.4rem;
-        color: var(--accent-2);
-        text-decoration: none;
-        font-weight: 600;
+        padding: 2px 8px;
+        margin-right: 0.35rem;
+        margin-bottom: 0.4rem;
+        border-radius: 4px;
+        border: 1px solid rgba(232, 160, 32, 0.3);
+        background: rgba(232, 160, 32, 0.12);
+        color: #e8a020;
+        font-family: 'IBM Plex Mono', monospace;
+        letter-spacing: 0.04em;
+        font-size: 0.85rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+
+      .lens-chip:hover {
+        background: rgba(232, 160, 32, 0.2);
+        box-shadow: 0 0 8px rgba(232, 160, 32, 0.25);
+        transform: scale(1.03);
+      }
+
+      [data-theme='light'] .lens-chip {
+        background: rgba(232, 160, 32, 0.18);
+        border-color: rgba(232, 160, 32, 0.45);
+      }
+
+      .lens-divider {
+        margin-top: 3.5rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+
+      .lens-divider-line {
+        height: 1px;
+        width: 100%;
+        background: var(--divider-gradient);
+        opacity: 0.65;
+      }
+
+      .lens-ticker {
+        overflow: hidden;
+      }
+
+      .lens-ticker-track {
+        display: inline-flex;
+        gap: 2.5rem;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: rgba(248, 244, 234, 0.5);
+        white-space: nowrap;
+        animation: tickerScroll 20s linear infinite;
+      }
+
+      [data-theme='light'] .lens-ticker-track {
+        color: rgba(13, 11, 8, 0.45);
+      }
+
+      .closing-highlight {
+        color: var(--accent-amber);
+        position: relative;
+        animation: glowPulse 3s ease-in-out infinite;
+      }
+
+      .card-tagline {
+        margin-top: 1.2rem;
+        padding-top: 1rem;
+        border-top: 1px solid transparent;
+        border-image-slice: 1;
+        font-size: 0.95rem;
+        font-style: italic;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        opacity: 0;
+        transform: translateX(-12px);
+        transition: opacity 0.45s ease, transform 0.45s ease, color 0.2s ease;
+      }
+
+      .card-tagline::before {
+        content: '—';
+        transition: transform 0.2s ease;
+      }
+
+      .card-tagline.tagline-visible {
+        opacity: 0.85;
+        transform: translateX(0);
+      }
+
+      .card:hover .card-tagline::before {
+        transform: translateX(4px);
+      }
+
+      .card:hover .card-tagline {
+        opacity: 1;
+      }
+
+      .methodology-closing {
+        position: relative;
+        margin-top: 4rem;
+        padding: clamp(3rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 3.5rem);
+        border-radius: 3rem;
+        background: var(--closing-bg);
+        overflow: hidden;
+        isolation: isolate;
+        box-shadow: 0 30px 120px rgba(0, 0, 0, 0.35);
+      }
+
+      .methodology-closing::before,
+      .methodology-closing::after {
+        content: '';
+        position: absolute;
+        width: clamp(220px, 35vw, 420px);
+        height: clamp(220px, 35vw, 420px);
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: drift 8s ease-in-out infinite alternate;
+        filter: blur(10px);
+      }
+
+      .methodology-closing::before {
+        top: -15%;
+        left: -8%;
+        background: var(--orb-amber);
+      }
+
+      .methodology-closing::after {
+        bottom: -20%;
+        right: -12%;
+        background: var(--orb-teal);
+        animation-delay: 1.2s;
+      }
+
+      .closing-divider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--divider-gradient);
+        opacity: 0.8;
+        z-index: 1;
+      }
+
+      .closing-ghost-word {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(6rem, 15vw, 14rem);
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: var(--closing-ghost);
+        opacity: 0.25;
+        pointer-events: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+      .closing-inner {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+      }
+
+      .closing-line {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .closing-line.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .closing-eyebrow {
+        font-family: 'IBM Plex Mono', monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.4em;
+        font-size: 0.75rem;
+        color: var(--pill-text);
+        margin-bottom: 1.5rem;
+      }
+
+      .closing-headline {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        margin: 0;
+      }
+
+      .closing-underline {
+        position: relative;
+        color: var(--accent-amber);
+      }
+
+      .closing-underline::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.3rem;
+        width: 0;
+        height: 2px;
+        background: var(--accent-amber);
+        transition: width 0.6s ease;
+      }
+
+      .closing-underline.active::after {
+        width: 100%;
+      }
+
+      .closing-columns {
         margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2.5rem;
+        align-items: center;
+        position: relative;
+      }
+
+      .closing-columns::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .closing-columns p {
+        margin: 0;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--pill-text);
+      }
+
+      .closing-metrics {
+        margin-top: 2.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .closing-chip {
+        border: 1px solid rgba(232, 160, 32, 0.45);
+        border-radius: 999px;
+        padding: 0.5rem 1.5rem;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.85rem;
+        letter-spacing: 0.2em;
+        color: var(--pill-text);
+        text-transform: uppercase;
+        background: rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(8px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .closing-chip:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+      }
+
+      .closing-accent-line {
+        display: block;
+        margin: 2.5rem auto 0;
+        width: min(420px, 70%);
+        height: 1px;
+        background: var(--divider-gradient);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.8s ease;
+      }
+
+      .closing-accent-line.expanded {
+        transform: scaleX(1);
+      }
+
+      .contact-panel {
+        margin-top: 4rem;
+        padding: clamp(2rem, 6vw, 3.5rem);
+        border-radius: 2.5rem;
+        background: var(--contact-bg);
+        border: 1px solid var(--contact-border);
+        text-align: center;
+      }
+
+      .contact-eyebrow {
+        font-family: 'IBM Plex Mono', monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 1rem;
+        color: var(--accent-amber);
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-links-editorial {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+      }
+
+      .contact-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-size: 1.15rem;
+        color: var(--contact-text);
+        text-decoration: none;
+        transition: color 0.25s ease;
+        padding: 0.4rem 0.65rem;
+        border-radius: 1.25rem;
+      }
+
+      .contact-link-label {
+        font-family: 'IBM Plex Mono', monospace;
+        letter-spacing: 0.25em;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+      }
+
+      .contact-link-value {
+        font-size: 1.05rem;
+        font-weight: 600;
+      }
+
+      .contact-link-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        border: 1px solid var(--contact-border);
+        background: rgba(255, 255, 255, 0.06);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      [data-theme='light'] .contact-link-icon {
+        background: rgba(255, 255, 255, 0.85);
+      }
+
+      .contact-link-icon img {
+        width: 70%;
+        height: 70%;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+      }
+
+      .contact-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.4rem;
+        width: 0;
+        height: 1px;
+        background: var(--accent-amber);
+        transition: width 0.3s ease;
+      }
+
+      .contact-link:hover {
+        color: var(--accent-amber);
+      }
+
+      .contact-link:hover::after {
+        width: 100%;
+      }
+
+      .contact-link-arrow {
+        font-family: 'IBM Plex Mono', monospace;
+        transition: transform 0.25s ease;
+      }
+
+      .contact-link:hover .contact-link-arrow {
+        transform: translateX(4px);
+      }
+
+      .contact-separator {
+        font-size: 1.5rem;
+        color: var(--contact-text);
+        opacity: 0.4;
+      }
+
+      [data-theme='light'] .closing-chip {
+        background: rgba(255, 255, 255, 0.7);
+        color: #0d0b08;
+      }
+
+      .methodology-footer {
+        margin-top: 3rem;
+        text-align: center;
+        padding-bottom: 3rem;
+      }
+
+      .methodology-footer-divider {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: var(--divider-gradient);
+        margin-bottom: 1.25rem;
+      }
+
+      .methodology-footer p {
+        margin: 0;
+        font-family: 'IBM Plex Mono', monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        color: var(--footer-text);
+        transition: color 0.2s ease;
+      }
+
+      .methodology-footer p:hover {
+        color: var(--footer-text-hover);
+      }
+
+      @media (max-width: 1024px) {
+        .principle-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .principle-card,
+        .principle-card:nth-child(n + 4) {
+          grid-column: auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .principle-grid {
+          grid-template-columns: 1fr;
+        }
+        .closing-columns {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        .closing-columns::before {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .contact-links-editorial {
+          flex-direction: column;
+        }
+        .contact-separator {
+          display: none;
+        }
+        .methodology-closing {
+          padding: 2.5rem 1.5rem;
+        }
+      }
+
+      @keyframes drift {
+        0% {
+          transform: translate(-5%, -5%) scale(1);
+        }
+        100% {
+          transform: translate(5%, 5%) scale(1.1);
+        }
+      }
+
+      @keyframes tickerScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes glowPulse {
+        0% { text-shadow: 0 0 6px rgba(232, 160, 32, 0.2); }
+        50% { text-shadow: 0 0 18px rgba(232, 160, 32, 0.35); }
+        100% { text-shadow: 0 0 6px rgba(232, 160, 32, 0.2); }
       }
     </style>
   </head>
-  <body>
-    <div class="ambient"></div>
-    <div class="noise"></div>
+  <body class="min-h-screen bg-charcoal text-parchment">
+    <div id="root"></div>
 
-    <main class="container think-hero">
-      <p class="tag">Draft Concept</p>
-      <h1>How I Think</h1>
-      <p>
-        This page will soon showcase interactive diagrams, sketches, and micro case studies that map my thought
-        process from problem framing to shipped experience. For now, here is a quick snapshot of the principles I
-        keep close while designing and building.
-      </p>
-      <div class="think-cards">
-        <article class="card">
-          <h3>Systems before Screens</h3>
-          <p>
-            Document flows, constraints, and metrics first. Interfaces follow naturally when the system is coherent.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Momentum Mindset</h3>
-          <p>
-            Ship small proofs quickly, measure impact, then scale with confidence. Momentum beats perfection.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Human Signal</h3>
-          <p>
-            Every feature has a human at the other end. Empathy interviews and shadowing rituals stay in the loop.
-          </p>
-        </article>
-      </div>
-      <a class="back-link" href="index.html">← Back to Portfolio</a>
-    </main>
+    <div class="pointer-events-none fixed inset-0 noise-texture opacity-40 mix-blend-soft-light"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const { useState, useEffect, useRef } = React;
+
+      const PRINCIPLES = [
+        {
+          id: '01',
+          icon: '◑',
+          title: 'Understand the Business Before the Code',
+          subtitle: 'Technology solves operational friction.',
+          description: 'Before writing a single line, I identify:',
+          bullets: [
+            'What process is breaking?',
+            'Where is time being wasted?',
+            'What is the scale?',
+            'What will this look like 10× larger?',
+          ],
+          note: 'Clarity first. Code second.',
+        },
+        {
+          id: '02',
+          icon: '✦',
+          title: 'Automate What Repeats',
+          subtitle: 'If a task happens twice, it can be automated.',
+          description:
+            "In e-commerce systems handling thousands of SKUs, manual operations don't scale. My default instinct is to:",
+          bullets: [
+            'Remove repetition',
+            'Reduce dependency on manual intervention',
+            'Design event-driven logic',
+            'Build systems that improve themselves over time',
+          ],
+          note: 'Automation is strategy, not a feature.',
+        },
+        {
+          id: '03',
+          icon: '⧉',
+          title: 'Design for Data Integrity & Scale',
+          subtitle: 'Retail systems fail when data becomes inconsistent.',
+          description: 'I think in:',
+          bullets: [
+            'Parent–variant relationships',
+            'Workflow states',
+            'Validation layers',
+            'Edge cases',
+            'Performance under load',
+          ],
+          note: 'A system is only as strong as its weakest data path.',
+        },
+        {
+          id: '04',
+          icon: '△',
+          title: 'Integrate AI Where It Adds Real Value',
+          subtitle: 'AI should reduce complexity, not create it.',
+          description: 'I use AI where it:',
+          bullets: [
+            'Eliminates repetitive content creation',
+            'Improves information retrieval',
+            'Enhances decision support',
+            'Increases operational efficiency',
+          ],
+          note: 'Not as hype. As infrastructure.',
+        },
+        {
+          id: '05',
+          icon: '☰',
+          title: 'Build for Clarity',
+          subtitle: "If someone can't understand a system after reading it, it's poorly designed.",
+          description: 'Good systems:',
+          bullets: ['Are predictable', 'Are observable', 'Are documented', 'Fail gracefully'],
+          note: 'Simplicity at scale is hard — and worth pursuing.',
+        },
+      ];
+
+      const HERO_LINES = [
+        { text: 'MY SYSTEM DESIGN THINKING METHODOLOGY', className: 'text-[0.75rem] tracking-[0.45em] uppercase text-accent font-mono' },
+        { text: "I don’t just write code — I design systems.", className: 'text-4xl md:text-6xl font-semibold leading-tight text-parchment' },
+        {
+          text: 'Every problem I approach goes through these 5 lenses:',
+          className: 'text-base md:text-lg text-parchment/80 max-w-3xl',
+        },
+      ];
+
+      const HERO_LENSES = [
+        { label: 'Business Context', target: 'principle-01' },
+        { label: 'Automation', target: 'principle-02' },
+        { label: 'Reliable Data', target: 'principle-03' },
+        { label: 'Purposeful AI', target: 'principle-04' },
+        { label: 'Ruthless Clarity', target: 'principle-05' },
+      ];
+
+      const TAG_TARGETS = [
+        { label: 'Business First', target: 'principle-01' },
+        { label: 'Automation', target: 'principle-02' },
+        { label: 'Data Integrity', target: 'principle-03' },
+        { label: 'AI Integration', target: 'principle-04' },
+        { label: 'Clarity', target: 'principle-05' },
+      ];
+
+      const ACCENT_BORDERS = ['var(--accent-amber)', 'var(--accent-teal)', '#c9b9a0'];
+
+      const METRIC_CHIPS = ['Teams → Faster', 'Processes → Smarter', 'Complexity → Manageable'];
+
+      const TAGLINE_COLORS = ['#e8a020', '#1ab8a0'];
+      const TAGLINE_BORDER_COLORS = ['rgba(232, 160, 32, 0.4)', 'rgba(26, 184, 160, 0.4)'];
+
+      /* UPDATE: tweak contact links here if any detail changes */
+      const CONTACT_LINKS = [
+        {
+          label: 'Email',
+          value: 'Get in touch',
+          href: 'mailto:shyamreddybeeram0@gmail.com?subject=Shyam%2C%20writing%20to%20you%20from%20Portfolio%20website',
+          external: false,
+          icon: 'assets/Gmail_icon.png',
+        },
+        {
+          label: 'LinkedIn',
+          value: 'shyamrb',
+          href: 'https://www.linkedin.com/in/shyamrb/',
+          external: true,
+          icon: 'assets/LinkedIn_logo.png',
+        },
+        {
+          label: 'GitHub',
+          value: 'shyamecomm',
+          href: 'https://github.com/shyamecomm',
+          external: true,
+          icon: 'assets/github_logo.webp',
+        },
+      ];
+
+      const App = () => {
+        const [heroVisible, setHeroVisible] = useState(false);
+        const [visibleCards, setVisibleCards] = useState({});
+        const [theme, setTheme] = useState('dark');
+        const [closingVisible, setClosingVisible] = useState(false);
+        const cardRefs = useRef([]);
+        const closingRef = useRef(null);
+        const currentYear = new Date().getFullYear();
+
+        useEffect(() => {
+          const timer = setTimeout(() => setHeroVisible(true), 150);
+          return () => clearTimeout(timer);
+        }, []);
+
+        useEffect(() => {
+          document.documentElement.setAttribute('data-theme', theme);
+        }, [theme]);
+
+        useEffect(() => {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const idx = entry.target.dataset.index;
+                  setVisibleCards((prev) => ({ ...prev, [idx]: true }));
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.35 }
+          );
+
+          cardRefs.current.forEach((card, index) => {
+            if (card) {
+              card.dataset.index = index;
+              observer.observe(card);
+            }
+          });
+
+          return () => observer.disconnect();
+        }, []);
+
+        useEffect(() => {
+          const observer = new IntersectionObserver(
+            ([entry]) => {
+              if (entry.isIntersecting) {
+                setClosingVisible(true);
+                observer.disconnect();
+              }
+            },
+            { threshold: 0.4 }
+          );
+
+          if (closingRef.current) {
+            observer.observe(closingRef.current);
+          }
+
+          return () => observer.disconnect();
+        }, []);
+
+        const toggleTheme = () => {
+          setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+        };
+
+        const handleTagClick = (targetId) => {
+          const el = document.getElementById(targetId);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        };
+
+        return (
+          <div className="relative min-h-screen overflow-hidden page-shell">
+            <main className="relative z-10 px-5 py-8 md:px-10 lg:px-16">
+              <div className="flex items-center justify-between">
+                <a
+                  href="index.html"
+                  className="text-xs font-mono uppercase tracking-[0.4em] text-parchment/70 hover:text-accent transition"
+                >
+                  ← Back  to  Portfolio
+                </a>
+                <button
+                  type="button"
+                  aria-label="Toggle color mode"
+                  onClick={toggleTheme}
+                  className={`theme-toggle ${theme === 'light' ? 'theme-light' : ''} inline-flex h-11 w-11 items-center justify-center rounded-full text-lg font-mono`}
+                >
+                  <span className="theme-icon">{theme === 'dark' ? '🌙' : '☀️'}</span>
+                </button>
+              </div>
+
+              <section className="relative min-h-[90vh] overflow-hidden py-16">
+                <div className="hero-gradient" aria-hidden="true"></div>
+                <div className="space-y-4 relative">
+                  {HERO_LINES.map((line, idx) => {
+                    if (idx === 1) {
+                      return (
+                        <p
+                          key={line.text}
+                          className={`${line.className} relative z-10`}
+                        >
+                          {line.text.split(' ').map((word, wIdx) => (
+                            <span
+                              key={`${word}-${wIdx}`}
+                              className={`hero-word ${heroVisible ? 'visible' : ''}`}
+                              style={{ transitionDelay: `${200 + wIdx * 70}ms` }}
+                            >
+                              {word}&nbsp;
+                            </span>
+                          ))}
+                        </p>
+                      );
+                    }
+
+                    if (idx === 2) {
+                      return (
+                        <p
+                          key={line.text}
+                          className={`${line.className} ${
+                            heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+                          } transition-all duration-700 relative z-10 flex flex-col`}
+                          style={{ transitionDelay: `${idx * 150}ms` }}
+                        >
+                          <span className="hero-sublead">{line.text}</span>
+                          <span className="hero-lenses-inline">
+                            {HERO_LENSES.map((lens) => (
+                              <span
+                                key={lens.target}
+                                role="button"
+                                tabIndex="0"
+                                className="lens-chip"
+                                onClick={() => handleTagClick(lens.target)}
+                                onKeyDown={(e) => {
+                                  if (e.key === 'Enter' || e.key === ' ') {
+                                    handleTagClick(lens.target);
+                                  }
+                                }}
+                              >
+                                {lens.label}
+                              </span>
+                            ))}
+                          </span>
+                        </p>
+                      );
+                    }
+
+                    return (
+                      <p
+                        key={line.text}
+                        className={`${line.className} ${
+                          heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+                        } transition-all duration-700 relative z-10`}
+                        style={{ transitionDelay: `${idx * 150}ms` }}
+                      >
+                        {line.text}
+                      </p>
+                    );
+                  })}
+                </div>
+                
+                <div
+                  className={`lens-divider ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'} transition-all duration-700`}
+                  style={{ transitionDelay: '500ms' }}
+                  aria-hidden="true"
+                >
+                  <span className="lens-divider-line"></span>
+                  <div className="lens-ticker">
+                    <div className="lens-ticker-track">
+                      {[0, 1].map((copy) => (
+                        <span key={copy}>
+                          {TAG_TARGETS.map((tag, index) => (
+                            <React.Fragment key={`${copy}-${tag.target}`}>
+                              {tag.label.toUpperCase()}
+                              {index < TAG_TARGETS.length - 1 ? ' · ' : ' · '}
+                            </React.Fragment>
+                          ))}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <span className="lens-divider-line"></span>
+                </div>
+              </section>
+
+              <section className="space-y-8 border-t border-white/10 pt-12">
+                <div>
+                  <p className="text-sm font-mono uppercase tracking-[0.35em] text-accent">Five Principles</p>
+                  <h2 className="mt-4 max-w-3xl text-3xl font-semibold text-parchment">
+                    The Principles Behind My Engineering Decisions
+                  </h2>
+                </div>
+
+                <div className="principle-grid">
+                  {PRINCIPLES.map((principle, index) => (
+                    <article
+                      key={principle.id}
+                      ref={(el) => (cardRefs.current[index] = el)}
+                      id={`principle-${principle.id}`}
+                      className={`card principle-card group relative overflow-hidden border-l-4 card-surface transition-all duration-500 ${
+                        visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'
+                      }`}
+                      style={{
+                        borderLeftColor: ACCENT_BORDERS[index % ACCENT_BORDERS.length],
+                        transitionDelay: `${index * 80}ms`,
+                      }}
+                    >
+                      <div className="flex items-center gap-4">
+                        <span className="card-index" style={{ color: ACCENT_BORDERS[index % ACCENT_BORDERS.length] }}>
+                          {principle.id}
+                        </span>
+                        <div className="flex flex-col">
+                          <span className="font-mono text-sm text-parchment/60">{principle.icon}</span>
+                          <h3 className="font-semibold text-2xl text-parchment">{principle.title}</h3>
+                        </div>
+                      </div>
+                      <p className="mt-4 text-sm font-mono uppercase tracking-[0.25em] text-parchment/70">
+                        {principle.subtitle}
+                      </p>
+                      <p className="mt-4 text-base text-parchment/80">{principle.description}</p>
+                      <ul className="mt-4 space-y-1 text-base text-parchment">
+                        {principle.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-2">
+                            <span className="mt-2 h-1 w-1 rounded-full bg-accent"></span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      {(() => {
+                        const accentIndex = index % TAGLINE_COLORS.length;
+                        const taglineColor = TAGLINE_COLORS[accentIndex];
+                        const borderColor = TAGLINE_BORDER_COLORS[accentIndex];
+                        return (
+                          <p
+                            className={`card-tagline ${visibleCards[index] ? 'tagline-visible' : ''}`}
+                            style={{
+                              color: taglineColor,
+                              borderImage: `linear-gradient(90deg, transparent, ${borderColor}, transparent) 1`,
+                              transitionDelay: `${index * 80 + 300}ms`,
+                            }}
+                          >
+                            {principle.note}
+                          </p>
+                        );
+                      })()}
+                      <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-teal/10" />
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+
+              <section className="methodology-closing mt-16" ref={closingRef}>
+                <span className="closing-divider" aria-hidden="true"></span>
+                <div className="closing-ghost-word" aria-hidden="true">SYSTEMS</div>
+                <div className="closing-inner">
+                  <p
+                    className={`closing-eyebrow closing-line ${closingVisible ? 'visible' : ''}`}
+                    style={{ transitionDelay: '0ms' }}
+                  >
+                    — I Finally Say —
+                  </p>
+                  <h3
+                    className={`closing-headline closing-line ${closingVisible ? 'visible' : ''}`}
+                    style={{ transitionDelay: '150ms' }}
+                  >
+                    My goal is <span className={`closing-underline ${closingVisible ? 'active' : ''}`}>simple</span>.
+                  </h3>
+                  <div
+                    className={`closing-columns closing-line ${closingVisible ? 'visible' : ''}`}
+                    style={{ transitionDelay: '250ms' }}
+                  >
+                    <p>Build systems that make teams faster,</p>
+                    <p>processes smarter, and complexity manageable.</p>
+                  </div>
+                  <div
+                    className={`closing-metrics closing-line ${closingVisible ? 'visible' : ''}`}
+                    style={{ transitionDelay: '350ms' }}
+                  >
+                    {METRIC_CHIPS.map((metric) => (
+                      <span key={metric} className="closing-chip">
+                        {metric}
+                      </span>
+                    ))}
+                  </div>
+                  <span
+                    className={`closing-accent-line ${closingVisible ? 'expanded' : ''}`}
+                    aria-hidden="true"
+                  ></span>
+                </div>
+              </section>
+
+              <section className="contact-panel mt-16" id="contact">
+                <p className="contact-eyebrow">GET IN TOUCH</p>
+                <div className="contact-links-editorial">
+                  {CONTACT_LINKS.map((link, index) => (
+                    <React.Fragment key={link.label}>
+                      {index > 0 && <span className="contact-separator" aria-hidden="true">·</span>}
+                      <a
+                        href={link.href}
+                        className="contact-link"
+                        target={link.external ? '_blank' : undefined}
+                        rel={link.external ? 'noopener noreferrer' : undefined}
+                      >
+                        {link.icon && (
+                          <span className="contact-link-icon" aria-hidden="true">
+                            <img src={link.icon} alt="" loading="lazy" />
+                          </span>
+                        )}
+                        <span className="contact-link-label">{link.label}</span>
+                        <span className="contact-link-arrow" aria-hidden="true">→</span>
+                        <span className="contact-link-value">{link.value}</span>
+                      </a>
+                    </React.Fragment>
+                  ))}
+                </div>
+              </section>
+
+              <footer className="methodology-footer">
+                <span className="methodology-footer-divider" aria-hidden="true"></span>
+                <p>© {currentYear} Shyam Reddy · Portfolio</p>
+              </footer>
+            </main>
+          </div>
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<App />);
+    </script>
   </body>
 </html>

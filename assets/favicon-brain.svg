@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff74bd" />
+      <stop offset="100%" stop-color="#7c8dff" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="20" fill="none" />
+  <path d="M20 20c-4 0-6 3-6 7 0 2 0 4 2 6-2 1-3 3-3 6 0 4 3 7 7 7h4c-1-2-1-4-1-7v-2" fill="none" stroke="url(#brainGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M44 20c4 0 6 3 6 7 0 2 0 4-2 6 2 1 3 3 3 6 0 4-3 7-7 7h-4c1-2 1-4 1-7v-2" fill="none" stroke="url(#brainGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M24 18v30" stroke="url(#brainGrad)" stroke-width="4" stroke-linecap="round" />
+  <path d="M40 18v30" stroke="url(#brainGrad)" stroke-width="4" stroke-linecap="round" />
+  <path d="M32 18v30" stroke="url(#brainGrad)" stroke-width="4" stroke-linecap="round" />
+</svg>
