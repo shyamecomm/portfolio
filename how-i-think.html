@@ -7,8 +7,7 @@
       name="description"
       content="System thinking methodology portfolio page showing five engineering principles by Shyam Reddy."
     />
-    <title>How I Think | Shyam Reddy</title>
-    <link rel="icon" type="image/svg+xml" href="assets/favicon-brain.svg" />
+    <title>🧠 How I Think | Shyam Reddy</title>
     <script>
       window.tailwind = { config: {
         theme: {
@@ -166,13 +165,16 @@
         font-size: clamp(3rem, 6vw, 5rem);
         font-weight: 700;
         color: var(--accent-amber);
-        opacity: 0.15;
-        transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+        opacity: 0.38;
+        text-shadow: 0 8px 24px rgba(124, 141, 255, 0.35);
+        transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
       }
 
       .card:hover .card-index {
-        opacity: 0.35;
-        transform: scale(1.05);
+        opacity: 0.98;
+        color: #dbe3ff;
+        text-shadow: 0 14px 28px rgba(124, 141, 255, 0.6), 0 0 16px rgba(77, 229, 207, 0.35);
+        transform: scale(1.08) translateY(-2px);
       }
 
       .theme-toggle {
@@ -855,6 +857,28 @@
         const cardRefs = useRef([]);
         const closingRef = useRef(null);
         const currentYear = new Date().getFullYear();
+        const titleBase = '🧠 How I Think | Shyam Reddy';
+
+        useEffect(() => {
+          const titleFrames = [
+            titleBase,
+            '🧠· How I Think | Shyam Reddy',
+            '🧠•• How I Think | Shyam Reddy',
+            '🧠••• How I Think | Shyam Reddy',
+            titleBase,
+          ];
+          let titleIndex = 0;
+
+          const titleTimer = setInterval(() => {
+            titleIndex = (titleIndex + 1) % titleFrames.length;
+            document.title = titleFrames[titleIndex];
+          }, 950);
+
+          return () => {
+            clearInterval(titleTimer);
+            document.title = titleBase;
+          };
+        }, []);
 
         useEffect(() => {
           const timer = setTimeout(() => setHeroVisible(true), 150);
@@ -1101,7 +1125,7 @@
 
               <section className="methodology-closing mt-16" ref={closingRef}>
                 <span className="closing-divider" aria-hidden="true"></span>
-                <div className="closing-ghost-word" aria-hidden="true">SYSTEMS</div>
+                <div className="closing-ghost-word" aria-hidden="true">SHYAM</div>
                 <div className="closing-inner">
                   <p
                     className={`closing-eyebrow closing-line ${closingVisible ? 'visible' : ''}`}

@@ -441,6 +441,10 @@ main > section + section {
 
 .timeline { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 .timeline small { color: #c7d1f5; font-weight: 600; }
+.experience-card small {
+  margin-top: auto;
+  display: block;
+}
 
 .cta { text-align: center; padding-bottom: 3rem; }
 .contact-links {
