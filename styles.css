@@ -175,6 +175,7 @@ main { padding-bottom: 2rem; }
 .hero h1 { margin: 0.9rem 0 1rem; font-size: clamp(2.1rem, 5vw, 4.5rem); line-height: 1.15; }
 .name-gradient {
   background: linear-gradient(130deg, var(--accent), var(--accent-2));
+  background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -643,7 +644,14 @@ main > section + section {
   .grid.three,
   .hero-stats { grid-template-columns: 1fr; }
   .profile-card { transform: none; }
-  .profile-card img { height: 360px; }
+  .profile-card img {
+    height: auto;
+    max-height: min(72vh, 560px);
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    object-position: top center;
+    background: radial-gradient(circle at 50% 8%, rgba(124, 141, 255, 0.2), rgba(9, 15, 32, 0.35));
+  }
 }
 
 @media (max-width: 640px) {
