@@ -3,6 +3,30 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
+const mainTabTitleFrames = [
+  '🟢 LIVE | Shyam Reddy Portfolio',
+  '🟡 LIVE | Shyam Reddy Portfolio',
+  '🟢 OPEN TO COLLABORATE | Shyam Reddy',
+  '🟡 OPEN TO COLLABORATE | Shyam Reddy',
+];
+
+const isMainPortfolioPage =
+  window.location.pathname.endsWith('/index.html') ||
+  window.location.pathname === '/' ||
+  window.location.pathname === '';
+
+if (isMainPortfolioPage && document.title.includes('Shyam Reddy')) {
+  let mainTabTitleIndex = 0;
+
+  const updateMainTabTitle = () => {
+    document.title = mainTabTitleFrames[mainTabTitleIndex];
+    mainTabTitleIndex = (mainTabTitleIndex + 1) % mainTabTitleFrames.length;
+  };
+
+  updateMainTabTitle();
+  setInterval(updateMainTabTitle, 700);
+}
+
 const titles = [
   'Software Developer',
   'Software Engineer',
